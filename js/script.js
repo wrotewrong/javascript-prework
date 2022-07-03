@@ -22,11 +22,7 @@ function displayResult(argComputerMove, argPlayerMove) {
     (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')
   ) {
     printMessage('Gracz wygrywa!');
-  } else if (
-    (argComputerMove == 'kamień' && argPlayerMove == 'kamień') ||
-    (argComputerMove == 'papier' && argPlayerMove == 'papier') ||
-    (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce')
-  ) {
+  } else if (argComputerMove == argPlayerMove) {
     printMessage('Remis!');
   } else if (
     (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') ||

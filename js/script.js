@@ -16,39 +16,41 @@ function displayResult(argComputerMove, argPlayerMove) {
     'Komputer zagrał ' + argComputerMove + ', a gracz ' + argPlayerMove
   );
 
-  if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
+  if (
+    (argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
+    (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
+    (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')
+  ) {
     printMessage('Gracz wygrywa!');
-  } else if (argComputerMove == 'kamień' && argPlayerMove == 'kamień') {
+  } else if (
+    (argComputerMove == 'kamień' && argPlayerMove == 'kamień') ||
+    (argComputerMove == 'papier' && argPlayerMove == 'papier') ||
+    (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce')
+  ) {
     printMessage('Remis!');
-  } else if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
-    printMessage('Komputer wygrywa!');
-  } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
-    printMessage('Gracz wygrywa!');
-  } else if (argComputerMove == 'papier' && argPlayerMove == 'papier') {
-    printMessage('Remis!');
-  } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
-    printMessage('Komputer wygrywa!');
-  } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
-    printMessage('Gracz wygrywa!');
-  } else if (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce') {
-    printMessage('Remis!');
-  } else if (argComputerMove == 'nożyce' && argPlayerMove == 'papier') {
+  } else if (
+    (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') ||
+    (argComputerMove == 'papier' && argPlayerMove == 'kamień') ||
+    (argComputerMove == 'nożyce' && argPlayerMove == 'papier')
+  ) {
     printMessage('Komputer wygrywa!');
   } else if (argPlayerMove == 'nieznany ruch') {
     printMessage('Nieznana komenda! - wpisz cyfrę: 1, 2 lub 3');
   }
 }
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
+const randomNumber = Math.floor(Math.random() * 3 + 1);
 
 console.log('Wylosowana liczba to: ' + randomNumber);
 
-let computerMove = getMoveName(randomNumber);
+const computerMove = getMoveName(randomNumber);
 
-let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+const playerInput = prompt(
+  'Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.'
+);
 
 console.log('Gracz wpisał: ' + playerInput);
 
-let playerMove = getMoveName(playerInput);
+const playerMove = getMoveName(playerInput);
 
 displayResult(computerMove, playerMove);

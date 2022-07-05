@@ -10,9 +10,6 @@ function playGame(playerInput) {
     } else if (argMoveId == 3) {
       return 'nożyce';
     }
-
-    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-    return 'nieznany ruch';
   }
 
   function displayResult(argComputerMove, argPlayerMove) {
@@ -34,9 +31,7 @@ function playGame(playerInput) {
       (argComputerMove == 'nożyce' && argPlayerMove == 'papier')
     ) {
       printMessage('Komputer wygrywa!');
-    } else if (argPlayerMove == 'nieznany ruch') {
-      printMessage('Nieznana komenda! - wpisz cyfrę: 1, 2 lub 3');
-    }
+    } 
   }
 
   const randomNumber = Math.floor(Math.random() * 3 + 1);
